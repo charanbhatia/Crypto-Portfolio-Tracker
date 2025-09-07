@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { CryptoPriceMap } from "@/lib/coingecko"
 import { TrendingUp, TrendingDown, ArrowRight } from "lucide-react"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 export default function HomePage() {
   const { data: session, status } = useSession()
@@ -59,17 +60,18 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white shadow">
+      <header className="bg-white dark:bg-gray-800 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                 Crypto Portfolio Tracker
               </h1>
             </div>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
+              <ThemeToggle />
               <Link
                 href="/auth/signin"
                 className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors"
@@ -78,7 +80,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/auth/signup"
-                className="bg-white text-indigo-600 border border-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-50 transition-colors"
+                className="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border border-indigo-600 dark:border-indigo-400 px-4 py-2 rounded-md hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"
               >
                 Sign Up
               </Link>
