@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { SessionProvider } from "@/components/SessionProvider"
+import { ThemeProvider } from "@/contexts/ThemeContext"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,11 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <SessionProvider>
-          {children}
-        </SessionProvider>
+        <ThemeProvider>
+          <SessionProvider>
+            {children}
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
