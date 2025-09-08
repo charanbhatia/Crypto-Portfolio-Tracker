@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
 
-    if (!session?.user?.id) {
+    if (!session?.user || !(session.user as any).id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "10")
 
     const trades = await prisma.trade.findMany({
-      where: { userId: session.user.id },
+      where: { userId: (session.user as any).id },
       orderBy: { createdAt: "desc" },
       take: limit,
     })

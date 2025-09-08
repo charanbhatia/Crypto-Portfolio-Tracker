@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
 
-    if (!session?.user?.id) {
+    if (!session?.user || !(session.user as any).id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     // Get user's portfolio
     const portfolio = await prisma.portfolio.findUnique({
-      where: { userId: session.user.id },
+      where: { userId: (session.user as any).id },
       include: {
         holdings: true
       }
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
       // Create trade record
       const trade = await tx.trade.create({
         data: {
-          userId: session.user.id,
+          userId: (session.user as any).id,
           symbol,
           type,
           amount,
@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
       if (type === "BUY") {
         // Update USD balance
         await tx.portfolio.update({
-          where: { userId: session.user.id },
+          where: { userId: (session.user as any).id },
           data: {
             usdBalance: portfolio.usdBalance - total
           }
@@ -111,7 +111,7 @@ export async function POST(request: NextRequest) {
       } else if (type === "SELL") {
         // Update USD balance
         await tx.portfolio.update({
-          where: { userId: session.user.id },
+          where: { userId: (session.user as any).id },
           data: {
             usdBalance: portfolio.usdBalance + total
           }

@@ -8,13 +8,13 @@ export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
 
-    if (!session?.user?.id) {
+    if (!session?.user || !(session.user as any).id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
     // Get user's portfolio
     const portfolio = await prisma.portfolio.findUnique({
-      where: { userId: session.user.id },
+      where: { userId: (session.user as any).id },
       include: {
         holdings: true
       }
