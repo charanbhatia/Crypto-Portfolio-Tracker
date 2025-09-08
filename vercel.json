@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "NEXTAUTH_URL": "@nextauth_url", 
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "COINGECKO_API_URL": "@coingecko_api_url"
+  }
+}
