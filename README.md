@@ -1,3 +1,4 @@
+
 # 🚀 Crypto Portfolio Tracker
 
 A modern, full-stack cryptocurrency portfolio tracking application with mock trading functionality, built with Next.js 14, TypeScript, and real-time price data from CoinGecko API.
@@ -18,6 +19,7 @@ A modern, full-stack cryptocurrency portfolio tracking application with mock tra
 - **📱 Responsive Design** - Works perfectly on desktop, tablet, and mobile
 - **🌙 Dark/Light Mode** - Toggle between themes with persistent preferences
 
+
 ### Supported Cryptocurrencies
 - **Bitcoin (BTC)**
 - **Ethereum (ETH)**
@@ -27,6 +29,7 @@ A modern, full-stack cryptocurrency portfolio tracking application with mock tra
 - **Solana (SOL)**
 
 ### Bonus Features
+
 - **🔔 Price Alerts** - Notification system for price updates
 - **🔒 2FA Simulation** - Two-factor authentication simulation
 - **📊 Advanced Charts** - Interactive portfolio distribution and performance charts
@@ -34,6 +37,11 @@ A modern, full-stack cryptocurrency portfolio tracking application with mock tra
 - **⚡ Real-time Updates** - Live portfolio value calculations
 
 ## 🛠️ Tech Stack
+
+- ** Price Alerts** - Notification system for price updates
+- ** Advanced Charts** - Interactive portfolio distribution and performance charts
+- ** Modern UI** - Glass morphism effects, gradients, and smooth animations
+- ** Real-time Updates** - Live portfolio value calculations
 
 ### Frontend
 - **Next.js 14** - React framework with App Router
@@ -52,7 +60,9 @@ A modern, full-stack cryptocurrency portfolio tracking application with mock tra
 ### External APIs
 - **CoinGecko API** - Free cryptocurrency price data
 
+
 ## 🚀 Getting Started
+
 
 ### Prerequisites
 - Node.js 18+ 
@@ -105,10 +115,12 @@ A modern, full-stack cryptocurrency portfolio tracking application with mock tra
 5. **View Analytics** - Detailed charts and performance metrics
 
 ### Navigation
+
 - **🏠 Dashboard** - Overview of your portfolio and performance
 - **📈 Trading** - Buy and sell cryptocurrencies
 - **💼 Portfolio** - Detailed analytics and charts
 - **⚙️ Settings** - Theme preferences and 2FA simulation
+
 
 ## 🏗️ Project Structure
 
@@ -179,6 +191,8 @@ src/
 3. Set environment variables in Vercel dashboard
 4. Deploy automatically
 
+
+
 ### Environment Variables for Production
 ```env
 DATABASE_URL="your-production-database-url"
@@ -186,6 +200,7 @@ NEXTAUTH_URL="https://your-domain.vercel.app"
 NEXTAUTH_SECRET="your-secure-secret-key"
 COINGECKO_API_URL="https://api.coingecko.com/api/v3"
 ```
+
 
 ## 🧪 Testing
 
@@ -198,6 +213,7 @@ COINGECKO_API_URL="https://api.coingecko.com/api/v3"
 - [ ] Mobile responsiveness
 - [ ] Portfolio analytics and charts
 - [ ] Settings page functionality
+
 
 ## 📊 Performance
 
@@ -216,17 +232,20 @@ COINGECKO_API_URL="https://api.coingecko.com/api/v3"
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
+
 - **CoinGecko** - For providing free cryptocurrency price data
 - **Next.js Team** - For the amazing React framework
 - **Tailwind CSS** - For the utility-first CSS framework
 - **Prisma** - For the excellent database ORM
 - **Lucide** - For the beautiful icon set
+
 
 ## 📞 Support
 
@@ -245,6 +264,7 @@ If you have any questions or need help, please:
 - [ ] Mobile app development
 - [ ] Advanced security features
 - [ ] Multi-language support
+
 
 ---
 
