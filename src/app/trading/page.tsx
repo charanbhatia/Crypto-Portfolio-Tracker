@@ -55,7 +55,7 @@ export default function TradingPage() {
   const [tradeForm, setTradeForm] = useState<TradeForm>({
     symbol: "BTC",
     type: "BUY",
-    amount: 0,
+    amount: NaN,
     price: 0,
     total: 0
   })
@@ -332,12 +332,20 @@ export default function TradingPage() {
                 </label>
                 <div className="flex space-x-2">
                   <input
-                    type="number"
-                    step="0.000001"
-                    min="0"
-                    max={getMaxAmount()}
-                    value={tradeForm.amount}
-                    onChange={(e) => handleAmountChange(parseFloat(e.target.value) || 0)}
+                    type="text"
+                    inputMode="decimal"
+                    value={Number.isNaN(tradeForm.amount) ? "" : String(tradeForm.amount)}
+                    onChange={(e) => {
+                      const raw = e.target.value.trim()
+                      if (raw === "") {
+                        setTradeForm((prev) => ({ ...prev, amount: NaN, total: 0 }))
+                        return
+                      }
+                      const numeric = Number(raw)
+                      if (!Number.isNaN(numeric)) {
+                        handleAmountChange(Math.max(0, Math.min(numeric, getMaxAmount())))
+                      }
+                    }}
                     className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     placeholder="0.000000"
                   />
