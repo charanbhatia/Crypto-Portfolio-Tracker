@@ -5,7 +5,20 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { CryptoPriceMap } from "@/lib/coingecko"
-import { TrendingUp, TrendingDown, ArrowRight } from "lucide-react"
+import { 
+  TrendingUp, 
+  TrendingDown, 
+  ArrowRight, 
+  Shield, 
+  Zap, 
+  BarChart3,
+  Star,
+  Users,
+  Globe,
+  Github,
+  Twitter,
+  Linkedin
+} from "lucide-react"
 import { ThemeToggle } from "@/components/ThemeToggle"
 
 export default function HomePage() {
@@ -60,29 +73,32 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow">
+      <header className="glass-effect sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Crypto Portfolio Tracker
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <BarChart3 className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-2xl font-bold text-white">
+                Crypto<span className="text-gradient">Tracker</span>
               </h1>
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
               <Link
                 href="/auth/signin"
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors"
+                className="px-6 py-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
               >
                 Sign In
               </Link>
               <Link
                 href="/auth/signup"
-                className="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border border-indigo-600 dark:border-indigo-400 px-4 py-2 rounded-md hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"
+                className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Sign Up
+                Get Started
               </Link>
             </div>
           </div>
@@ -90,76 +106,104 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Track Your Crypto Portfolio
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 text-indigo-100">
-              Real-time prices, mock trading, and portfolio management
+            <div className="animate-float mb-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6">
+                <BarChart3 className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+              Master Your
+              <span className="block text-gradient">Crypto Portfolio</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Professional-grade portfolio tracking with real-time prices, 
+              advanced analytics, and mock trading capabilities
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
                 href="/auth/signup"
-                className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 animate-pulse-glow"
               >
-                Get Started Free
+                Start Trading Free
+                <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/auth/signin"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors"
+                className="px-8 py-4 bg-white/10 text-white border border-white/30 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
               >
                 Sign In
               </Link>
+            </div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">$10K</div>
+                <div className="text-gray-400">Starting Balance</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">6</div>
+                <div className="text-gray-400">Cryptocurrencies</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                <div className="text-gray-400">Real-time Updates</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Live Prices Section */}
-      <section className="py-16">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Live Crypto Prices
-            </h3>
-            <p className="text-gray-600">
-              Real-time prices updated every 30 seconds
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Live Market Data
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Real-time cryptocurrency prices updated every 30 seconds from CoinGecko API
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(prices).map(([symbol, coin]) => (
               <div
                 key={symbol}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+                className="group glass-effect rounded-2xl p-6 card-hover border border-white/10"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <img
-                      src={coin.image}
-                      alt={coin.name}
-                      className="w-10 h-10 rounded-full"
-                    />
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="relative">
+                      <img
+                        src={coin.image}
+                        alt={coin.name}
+                        className="w-12 h-12 rounded-full"
+                      />
+                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
+                    </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">
+                      <h4 className="text-lg font-bold text-white">
                         {coin.name}
                       </h4>
-                      <p className="text-sm text-gray-500 uppercase">
+                      <p className="text-sm text-gray-400 uppercase font-medium">
                         {symbol}
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-lg font-bold text-gray-900">
+                    <p className="text-xl font-bold text-white">
                       {formatPrice(coin.current_price)}
                     </p>
                     <div
-                      className={`flex items-center text-sm ${
+                      className={`flex items-center text-sm font-medium ${
                         coin.price_change_percentage_24h >= 0
-                          ? "text-green-600"
-                          : "text-red-600"
+                          ? "text-green-400"
+                          : "text-red-400"
                       }`}
                     >
                       {coin.price_change_percentage_24h >= 0 ? (
@@ -171,9 +215,15 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <div className="text-sm text-gray-500">
-                  <p>Market Cap: {formatPrice(coin.market_cap)}</p>
-                  <p>Volume: {formatPrice(coin.total_volume)}</p>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <div className="flex justify-between">
+                    <span>Market Cap:</span>
+                    <span className="text-white font-medium">{formatPrice(coin.market_cap)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Volume:</span>
+                    <span className="text-white font-medium">{formatPrice(coin.total_volume)}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -182,51 +232,51 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-white py-16">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Features
-            </h3>
-            <p className="text-gray-600">
-              Everything you need to track and manage your crypto portfolio
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Powerful Features
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Everything you need to master cryptocurrency portfolio management
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-8 h-8 text-indigo-600" />
+            <div className="group text-center glass-effect rounded-2xl p-8 card-hover border border-white/10">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Real-time Prices
-              </h4>
-              <p className="text-gray-600">
-                Live cryptocurrency prices updated every 30 seconds from CoinGecko API
+              </h3>
+              <p className="text-gray-300 leading-relaxed">
+                Live cryptocurrency prices updated every 30 seconds from CoinGecko API with advanced market data
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ArrowRight className="w-8 h-8 text-green-600" />
+            <div className="group text-center glass-effect rounded-2xl p-8 card-hover border border-white/10">
+              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <BarChart3 className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Mock Trading
-              </h4>
-              <p className="text-gray-600">
-                Practice trading with $10,000 starting balance. Buy and sell cryptocurrencies safely
+              </h3>
+              <p className="text-gray-300 leading-relaxed">
+                Practice trading with $10,000 starting balance. Buy and sell cryptocurrencies safely with real market conditions
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingDown className="w-8 h-8 text-purple-600" />
+            <div className="group text-center glass-effect rounded-2xl p-8 card-hover border border-white/10">
+              <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-10 h-10 text-white" />
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                Portfolio Tracking
-              </h4>
-              <p className="text-gray-600">
-                Monitor your holdings, track profit/loss, and view your trading history
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Portfolio Analytics
+              </h3>
+              <p className="text-gray-300 leading-relaxed">
+                Advanced portfolio tracking with profit/loss analysis, performance charts, and detailed trading history
               </p>
             </div>
           </div>
@@ -234,9 +284,73 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p>&copy; 2024 Crypto Portfolio Tracker. Built with Next.js and TypeScript.</p>
+      <footer className="relative bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Brand */}
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Crypto<span className="text-gradient">Tracker</span>
+                </h3>
+              </div>
+              <p className="text-gray-300 mb-6 max-w-md">
+                Professional cryptocurrency portfolio tracking with real-time data, 
+                advanced analytics, and mock trading capabilities.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Github className="w-5 h-5 text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Twitter className="w-5 h-5 text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Linkedin className="w-5 h-5 text-white" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+              <ul className="space-y-3">
+                <li><a href="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</a></li>
+                <li><a href="/trading" className="text-gray-300 hover:text-white transition-colors">Trading</a></li>
+                <li><a href="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</a></li>
+                <li><a href="/auth/signin" className="text-gray-300 hover:text-white transition-colors">Sign In</a></li>
+              </ul>
+            </div>
+
+            {/* Features */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Features</h4>
+              <ul className="space-y-3">
+                <li><span className="text-gray-300">Real-time Prices</span></li>
+                <li><span className="text-gray-300">Mock Trading</span></li>
+                <li><span className="text-gray-300">Portfolio Analytics</span></li>
+                <li><span className="text-gray-300">Dark Mode</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-300 text-sm">
+                &copy; 2024 Crypto Portfolio Tracker. Built with Next.js, TypeScript, and Tailwind CSS.
+              </p>
+              <div className="flex items-center space-x-6 mt-4 md:mt-0">
+                <span className="text-gray-300 text-sm">Supported by</span>
+                <div className="flex items-center space-x-2">
+                  <Globe className="w-4 h-4 text-gray-400" />
+                  <span className="text-gray-300 text-sm">CoinGecko API</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
