@@ -141,43 +141,43 @@ export default function PortfolioPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Portfolio Analytics</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Portfolio Analytics</h1>
+          <p className="text-gray-600 dark:text-gray-300">
             Detailed view of your cryptocurrency portfolio performance
           </p>
         </div>
 
         {/* Portfolio Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <DollarSign className="h-8 w-8 text-indigo-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Total Value</p>
-                <p className="text-2xl font-semibold text-gray-900">
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Value</p>
+                <p className="text-2xl font-semibold text-gray-900 dark:text-white">
                   {formatPrice(portfolio?.totalValue || 0)}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Wallet className="h-8 w-8 text-green-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Total Invested</p>
-                <p className="text-2xl font-semibold text-gray-900">
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Invested</p>
+                <p className="text-2xl font-semibold text-gray-900 dark:text-white">
                   {formatPrice(portfolio?.totalInvested || 0)}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 {portfolio?.totalProfitLoss && portfolio.totalProfitLoss >= 0 ? (
@@ -187,7 +187,7 @@ export default function PortfolioPage() {
                 )}
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">P&L</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">P&L</p>
                 <p className={`text-2xl font-semibold ${
                   portfolio?.totalProfitLoss && portfolio.totalProfitLoss >= 0 
                     ? "text-green-600" 
@@ -199,7 +199,7 @@ export default function PortfolioPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 {portfolio?.profitLossPercentage && portfolio.profitLossPercentage >= 0 ? (
@@ -209,7 +209,7 @@ export default function PortfolioPage() {
                 )}
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">P&L %</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">P&L %</p>
                 <p className={`text-2xl font-semibold ${
                   portfolio?.profitLossPercentage && portfolio.profitLossPercentage >= 0 
                     ? "text-green-600" 
@@ -225,7 +225,7 @@ export default function PortfolioPage() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Portfolio Distribution Pie Chart */}
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex items-center mb-4">
               <PieChart className="h-6 w-6 text-indigo-600 mr-2" />
               <h3 className="text-lg font-medium text-gray-900">Portfolio Distribution</h3>
@@ -258,7 +258,7 @@ export default function PortfolioPage() {
           </div>
 
           {/* Performance Bar Chart */}
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-800">
             <div className="flex items-center mb-4">
               <BarChart3 className="h-6 w-6 text-indigo-600 mr-2" />
               <h3 className="text-lg font-medium text-gray-900">Holdings Performance</h3>
@@ -286,38 +286,38 @@ export default function PortfolioPage() {
         </div>
 
         {/* Detailed Holdings Table */}
-        <div className="bg-white shadow rounded-lg">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h3 className="text-lg font-medium text-gray-900">Detailed Holdings</h3>
+        <div className="bg-white dark:bg-gray-900 shadow rounded-lg border border-gray-200 dark:border-gray-800">
+          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white">Detailed Holdings</h3>
           </div>
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+              <thead className="bg-gray-50 dark:bg-gray-800">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Asset
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Amount
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Avg Buy Price
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Current Price
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Value
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     P&L
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     P&L %
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
                 {portfolio?.holdings && portfolio.holdings.length > 0 ? (
                   portfolio.holdings.map((holding) => (
                     <tr key={holding.symbol}>
