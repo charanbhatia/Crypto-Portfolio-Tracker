@@ -17,6 +17,8 @@ export async function GET(request: NextRequest) {
       where: { userId: (session.user as any).id },
       include: {
         holdings: true
+
+        
       }
     })
 
