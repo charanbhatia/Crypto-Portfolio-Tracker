@@ -181,7 +181,7 @@ src/
 
 ##  Deployment
 
-### Vercel live link: https://crypto-portfolio-tracker3-7e36xrj6c.vercel.app/
+### Vercel live link: https://crypto-portfolio-tracker3.vercel.app
 
 
 
