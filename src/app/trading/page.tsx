@@ -200,7 +200,9 @@ export default function TradingPage() {
 
   const getMaxAmount = () => {
     if (tradeForm.type === "BUY") {
-      return Math.floor((portfolio?.usdBalance || 0) / tradeForm.price)
+      const usdBalance = portfolio?.usdBalance || 0
+      const price = tradeForm.price || 1
+      return price > 0 ? Math.floor((usdBalance / price) * 1000000) / 1000000 : 0
     } else {
       const holding = portfolio?.holdings.find(h => h.symbol === tradeForm.symbol)
       return holding?.amount || 0
@@ -342,8 +344,8 @@ export default function TradingPage() {
                         return
                       }
                       const numeric = Number(raw)
-                      if (!Number.isNaN(numeric)) {
-                        handleAmountChange(Math.max(0, Math.min(numeric, getMaxAmount())))
+                      if (!Number.isNaN(numeric) && numeric >= 0) {
+                        handleAmountChange(numeric)
                       }
                     }}
                     className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
